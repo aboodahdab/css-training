@@ -4,23 +4,27 @@ body {
   margin: 0;
   font-family: Helvetica, Arial, sans-serif;
 }
+
 * {
   box-sizing: border-box;
 }
+
 h1,
 h2,
 p {
   margin: 0;
 }
+
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 980px; /* limit total width */
-  width: 100%; /* responsive */
-  margin: 0 auto; /* centers it horizontally in page */
-  margin-top: 80px;
+  max-width: 980px;
+  width: 100%;
+  margin: 130px auto 0; /* 👈 pushes container down from top */
+  gap: 40px;
 }
+
 .left-div {
   flex-grow: 3;
   flex-basis: 60%;
@@ -28,19 +32,26 @@ p {
   justify-content: center;
   flex-direction: column;
 }
+
 .left-div h2 {
-  margin: 0;
   font-size: 60px;
   color: blue;
 }
+
 .left-div p {
   font-size: 28px;
 }
+
 .right-div {
   flex-grow: 1;
-  border-radius: 8px;
   flex-basis: 40%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
 }
+
+/* rest of your form styles stay exactly as you have them */
+
 .whole-form {
   background-color: white;
   box-shadow: 0 2px 4px #0000001a, 0 8px 16px #0000001a;
