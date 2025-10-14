@@ -30,13 +30,14 @@ body {
   font-size: 28px;
 }
 .right-div {
-  background-color: white;
-  box-shadow: 0 2px 4px #0000001a, 0 8px 16px #0000001a;
   flex-grow: 1;
   border-radius: 8px;
   flex-basis: 40%;
 }
-
+.whole-form {
+  background-color: white;
+  box-shadow: 0 2px 4px #0000001a, 0 8px 16px #0000001a;
+}
 .whole-form form {
   padding: 14px;
   display: flex;
@@ -92,4 +93,16 @@ body {
   font-size: 17px;
   padding: 12px;
   border-radius: 6px;
+}
+.create-a-page-div {
+  display: flex;
+  justify-content: center;
+}
+.create-a-page-divb p {
+  font-size: 14px;
+}
+.create-a-page-div p a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
 }
