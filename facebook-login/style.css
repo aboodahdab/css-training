@@ -1,0 +1,95 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  max-width: 900px;
+  width: 100%;
+  gap: 40px;
+}
+.left-div {
+  flex-grow: 3;
+  flex-basis: 60%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.left-div h2 {
+  margin: 0;
+  font-size: 60px;
+  color: blue;
+}
+.left-div p {
+  font-size: 28px;
+}
+.right-div {
+  background-color: white;
+  box-shadow: 0 2px 4px #0000001a, 0 8px 16px #0000001a;
+  flex-grow: 1;
+  border-radius: 8px;
+  flex-basis: 40%;
+}
+
+.whole-form form {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.whole-form form .inputs-div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.whole-form form .inputs-div input {
+  width: 364px;
+  padding: 17px;
+  border-radius: 6px;
+  border: none;
+  border: solid #aaa 1px;
+}
+.whole-form form .btn-div button {
+  width: 364px;
+  background-color: #0866ff;
+  color: white;
+  padding: 13px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border-radius: 6px;
+  border: none;
+}
+.whole-form form .forgot-password-div {
+  display: flex;
+  justify-content: center;
+}
+.whole-form form .forgot-password-div a {
+  text-decoration: none;
+  color: #0866ff;
+  font-size: 14px;
+}
+.whole-form form .create-new-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 8px;
+}
+.hr {
+  border-bottom: 1px solid #dadde1;
+}
+.whole-form form .create-new-div button {
+  color: white;
+  background: #42b72a;
+  border: none;
+  font-size: 17px;
+  padding: 12px;
+  border-radius: 6px;
+}

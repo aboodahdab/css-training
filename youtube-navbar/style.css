@@ -1,0 +1,124 @@
+body {
+  background-color: white;
+  color: black;
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  display: flex;
+  background-color: blue;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0f0f0f;
+  border-bottom: 1px solid #222;
+}
+.img {
+  width: 28px;
+  height: 28px;
+}
+
+.nav-left,
+.nav-center,
+.nav-right {
+  color: white;
+  align-items: center;
+  display: flex;
+  gap: 4px;
+}
+.nav-center {
+  flex: 1;
+  gap: 0;
+  justify-content: center;
+}
+img {
+  color: white;
+}
+.ham-div {
+  margin-left: 2px;
+}
+#input-search {
+  width: 100%;
+  max-width: 500px;
+  height: 36px;
+  padding: 0 12px;
+  border-right: none;
+  font-size: 16px;
+  border: 2px solid #222;
+  background-color: transparent;
+  color: white;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.search-button {
+  background-color: #222;
+  border: 1px solid #303030;
+  border-left: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 36px;
+  border-top-right-radius: 20px;
+  cursor: pointer;
+  border-bottom-right-radius: 20px;
+}
+.search-button:hover {
+  background-color: #383838;
+}
+.mic-div {
+  margin: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.mic-div:hover {
+  background-color: #383838;
+}
+.nav-right {
+  margin-right: 10px;
+  gap: 20px;
+}
+.upload-video {
+  border-radius: 18px;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+  gap: 6px;
+  color: white;
+
+  outline: none;
+  font-size: 14px;
+  padding: 6px 14px;
+  cursor: pointer;
+  border: 1px solid #303030;
+  transition: background-color 0.2s ease;
+}
+
+.upload-video:hover {
+  background-color: #383838;
+}
+#notfication {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+#notfication:hover {
+  background-color: #383838;
+}
+.circle-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+}
