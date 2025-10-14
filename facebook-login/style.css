@@ -1,18 +1,25 @@
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #f0f2f5;
   height: 100vh;
   margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
 }
 * {
   box-sizing: border-box;
 }
+h1,
+h2,
+p {
+  margin: 0;
+}
 .container {
   display: flex;
-  max-width: 900px;
-  width: 100%;
-  gap: 40px;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 980px; /* limit total width */
+  width: 100%; /* responsive */
+  margin: 0 auto; /* centers it horizontally in page */
+  margin-top: 80px;
 }
 .left-div {
   flex-grow: 3;
@@ -98,7 +105,7 @@ body {
   display: flex;
   justify-content: center;
 }
-.create-a-page-divb p {
+.create-a-page-div p {
   font-size: 14px;
 }
 .create-a-page-div p a {
