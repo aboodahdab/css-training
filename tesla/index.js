@@ -1,39 +1,77 @@
-imgs = document.querySelectorAll(".background-img-guy");
-
-$arrowButtons = document.querySelectorAll(".arrow-square-button");
-$buttonsCircled = document.querySelectorAll(
+const $imgs = document.querySelectorAll(".background-img-guy");
+const $pargraph = document.querySelector(".pargraph");
+const $heading = document.querySelector(".h1");
+const $arrowButtons = document.querySelectorAll(".arrow-square-button");
+const $buttonsCircled = document.querySelectorAll(
   " .the-dot-things-that-change-the-img"
 );
-imageToAdd =
-  "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Promo-Meet-Model-Y-Desktop.jpg";
+
 index = 0;
+num = 0;
+n = 0;
 thing = false;
-function changeImage(nextIndex) {
+timeout = null;
+function changeImage(nextIndex, imgs) {
   imgs[index].style.opacity = 0;
-  index = (nextIndex + imgs.length) % imgs.length;
+  index = (nextIndex + $imgs.length) % imgs.length;
   imgs[index].style.opacity = 1;
-}
 
-function recurison(index) {
-  timeout = setTimeout(() => {
-    changeImage(index + 1);
-    recurison(index);
-  }, 10000);
-  if (thing == true) {
-    clearTimeout(timeout);
+  num += 1;
+  changeTheAllowedButton($buttonsCircled);
+  changeParagraph(num, $pargraph, $heading);
+  clearTimeout(timeout);
+  recurison();
+}
+function changeParagraph(num, p, heading) {
+  if (num % 2 == 0) {
+    heading.textContent = "Meet Model Y";
+    p.textContent = "Electric Midsize SUV";
+    return;
   }
-}
 
+  heading.textContent = "Meet Model 3";
+  p.textContent = "Electric Sport Sedan";
+}
+function recurison() {
+  if (thing) {
+    return;
+  }
+  timeout = setTimeout(() => {
+    changeImage(index + 1, $imgs);
+    recurison();
+  }, 10000);
+}
+const check = ($elements) => {
+  for (i = 0; i < $elements.length; i += 1) {
+    if ($elements[i].id === "active") {
+      $elements[i].id = "";
+    }
+  }
+};
 $buttonsCircled.forEach((circle) => {
   circle.addEventListener("click", () => {
+    if (circle == document.getElementById("active")) {
+      return;
+    }
     thing = true;
-    changeImage(index + 1);
+    changeImage(index + 1, $imgs);
+    check($buttonsCircled);
+    circle.id = "active";
   });
 });
+
+function changeTheAllowedButton(ele) {
+  ele.forEach((circle, i) => {
+    circle.id = i === index ? "active" : "";
+  });
+}
+
 $arrowButtons.forEach((arrow) => {
   arrow.addEventListener("click", () => {
     thing = true;
-    changeImage(index + 1);
+    changeImage(index + 1, $imgs);
+
+    changeTheAllowedButton($buttonsCircled);
   });
 });
-recurison(index);
+recurison();
