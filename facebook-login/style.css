@@ -2,6 +2,8 @@ body {
   background-color: #f0f2f5;
   height: 100vh;
   margin: 0;
+  display: flex;
+  justify-content: center;
   font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -21,7 +23,8 @@ p {
   align-items: center;
   max-width: 980px;
   width: 100%;
-  margin: 130px auto 0; /* 👈 pushes container down from top */
+
+  height: 75vh;
   gap: 40px;
 }
 
@@ -31,6 +34,7 @@ p {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding-left: 20px; /* 👈 add this */
 }
 
 .left-div h2 {
@@ -47,10 +51,9 @@ p {
   flex-basis: 40%;
   display: flex;
   flex-direction: column;
+
   border-radius: 8px;
 }
-
-/* rest of your form styles stay exactly as you have them */
 
 .whole-form {
   background-color: white;
@@ -68,14 +71,16 @@ p {
   gap: 10px;
 }
 .whole-form form .inputs-div input {
-  width: 364px;
+  max-width: 364px;
+  width: 100%;
   padding: 17px;
   border-radius: 6px;
   border: none;
   border: solid #aaa 1px;
 }
 .whole-form form .btn-div button {
-  width: 364px;
+  max-width: 364px;
+  width: 100%;
   background-color: #0866ff;
   color: white;
   padding: 13px;
@@ -115,6 +120,7 @@ p {
 .create-a-page-div {
   display: flex;
   justify-content: center;
+  margin-top: 28px;
 }
 .create-a-page-div p {
   font-size: 14px;
@@ -123,4 +129,35 @@ p {
   text-decoration: none;
   font-weight: bold;
   color: black;
+}
+@media (max-width: 940px) {
+  body {
+    background-color: #f0f2f5; /* remove the red test color later */
+  }
+  .container {
+    flex-direction: column;
+  }
+  .left-div {
+    align-items: center;
+  }
+  .left-div h2 {
+    font-size: 46px;
+  }
+  .left-div p {
+    font-size: 24px;
+    max-width: 400px;
+    text-align: center;
+  }
+  .right-div {
+    width: 100%;
+    max-width: 396px;
+  }
+  .whole-form {
+    width: 100%;
+    max-width: 396px;
+  }
+  .whole-form form {
+    width: 100%;
+    max-width: 396px;
+  }
 }
