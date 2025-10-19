@@ -1,39 +1,60 @@
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #f0f2f5;
   height: 100vh;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  font-family: Helvetica, Arial, sans-serif;
 }
+
 * {
   box-sizing: border-box;
 }
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
 .container {
   display: flex;
-  max-width: 900px;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 980px;
   width: 100%;
+
+  height: 75vh;
   gap: 40px;
 }
+
 .left-div {
   flex-grow: 3;
   flex-basis: 60%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding-left: 20px; /* 👈 add this */
 }
+
 .left-div h2 {
-  margin: 0;
   font-size: 60px;
   color: blue;
 }
+
 .left-div p {
   font-size: 28px;
 }
+
 .right-div {
   flex-grow: 1;
-  border-radius: 8px;
   flex-basis: 40%;
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 8px;
 }
+
 .whole-form {
   background-color: white;
   box-shadow: 0 2px 4px #0000001a, 0 8px 16px #0000001a;
@@ -50,14 +71,16 @@ body {
   gap: 10px;
 }
 .whole-form form .inputs-div input {
-  width: 364px;
+  max-width: 364px;
+  width: 100%;
   padding: 17px;
   border-radius: 6px;
   border: none;
   border: solid #aaa 1px;
 }
 .whole-form form .btn-div button {
-  width: 364px;
+  max-width: 364px;
+  width: 100%;
   background-color: #0866ff;
   color: white;
   padding: 13px;
@@ -97,12 +120,44 @@ body {
 .create-a-page-div {
   display: flex;
   justify-content: center;
+  margin-top: 28px;
 }
-.create-a-page-divb p {
+.create-a-page-div p {
   font-size: 14px;
 }
 .create-a-page-div p a {
   text-decoration: none;
   font-weight: bold;
   color: black;
+}
+@media (max-width: 940px) {
+  body {
+    background-color: #f0f2f5; /* remove the red test color later */
+  }
+  .container {
+    flex-direction: column;
+  }
+  .left-div {
+    align-items: center;
+  }
+  .left-div h2 {
+    font-size: 46px;
+  }
+  .left-div p {
+    font-size: 24px;
+    max-width: 400px;
+    text-align: center;
+  }
+  .right-div {
+    width: 100%;
+    max-width: 396px;
+  }
+  .whole-form {
+    width: 100%;
+    max-width: 396px;
+  }
+  .whole-form form {
+    width: 100%;
+    max-width: 396px;
+  }
 }

@@ -1,0 +1,216 @@
+body {
+  background: white;
+  color: black;
+  height: 100vh;
+  margin: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 34px;
+  min-height: 56px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+svg {
+  width: 100%;
+  max-width: 124px;
+  height: auto;
+}
+.buttons-all-div {
+  display: flex;
+}
+.button-div {
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+}
+.button-div:hover {
+  background-color: #0000000d;
+}
+.button-div button {
+  outline: none;
+  border: none;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 14px;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0 12px;
+}
+.right-icons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.icon-div-circle {
+  width: 24px;
+  height: 24px;
+  padding: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.icon-div-circle:hover {
+  background-color: red;
+  border-radius: 4px;
+}
+.question-mark-icon {
+  width: 20px;
+  height: 20px;
+}
+.homepage-img-div {
+  position: relative;
+  width: 100%;
+  max-height: 600px;
+  overflow: hidden;
+}
+.homepage-img-div img {
+  width: 100%;
+  height: 100%;
+  max-height: 600px;
+  object-fit: cover;
+
+  object-position: center;
+  transition-duration: 1s;
+  transition-property: opacity;
+  display: block;
+}
+#justanimg {
+  position: absolute;
+}
+.text-on-img-div {
+  position: absolute;
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  transform: translate(-50%, -50%);
+  top: 20%;
+  text-align: center;
+  left: 50%;
+}
+.text-on-img-div h1 {
+  text-transform: capitalize;
+  font-weight: 600;
+
+  font-size: clamp(2.75rem, 3rem, 3.5rem);
+}
+h1,
+p,
+h2 {
+  margin: 0;
+}
+.text-on-img-div .buttons-div {
+  margin-top: 32px;
+  justify-content: center;
+  gap: 12px;
+  display: flex;
+}
+.text-on-img-div .buttons-div .order-now-button {
+  outline: none;
+  color: white;
+  border: none;
+  background: #3d6ae1;
+  width: 100%;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-transform: capitalize;
+  max-width: 200px;
+  padding: 12px 0;
+}
+.text-on-img-div .buttons-div .order-now-button:hover {
+  background: #3457b1;
+}
+.text-on-img-div .buttons-div .learn-more-button {
+  outline: none;
+  color: black;
+  text-transform: capitalize;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  width: 100%;
+  font-size: 14px;
+  border-radius: 4px;
+  max-width: 200px;
+  padding: 12px 0;
+}
+.text-on-img-div .buttons-div .learn-more-button:hover {
+  background-color: #eee;
+}
+.those-things-that-change-the-img-left-guy {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 48px;
+
+  width: 100%;
+  max-width: 200px;
+}
+.those-things-that-change-the-img-right-guy {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  right: 48px;
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  justify-content: flex-end;
+}
+.arrow-square-button {
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25098039215686274);
+
+  background-color: #ffffffbf;
+  padding: 4px;
+  cursor: pointer;
+  outline: none;
+  border-radius: 4px;
+  border: none;
+}
+.arrow-square-button:hover {
+}
+.arrow-square-button #arrow-chevron {
+  width: 24px;
+  height: 24px;
+}
+.the-dots-things-that-change-the-img-div {
+  position: absolute;
+  right: 50%;
+  bottom: 24px;
+  transform: translateX(-50);
+  display: flex;
+  gap: 8px;
+}
+.the-dots-things-that-change-the-img-div .the-dot-things-that-change-the-img {
+  width: 12px;
+  height: 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+@media (max-width: 1200px) {
+  .right-icons {
+    display: none;
+  }
+  .buttons-all-div {
+    display: none;
+  }
+}
