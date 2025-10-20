@@ -2,6 +2,9 @@ body {
   background: white;
   color: black;
   height: 100vh;
+
+  height: 100dvh;
+
   margin: 0;
 }
 * {
@@ -78,6 +81,7 @@ svg {
 .homepage-img-div {
   position: relative;
   width: 100%;
+  height: 100%;
   max-height: 600px;
   overflow: hidden;
 }
@@ -222,6 +226,21 @@ h2 {
 #active {
   opacity: 1;
 }
+.menu-dark {
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.menu-light {
+  background-color: rgba(200, 220, 255, 0.25); /* subtle bluish tint */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
 
 @media (max-width: 1200px) {
   .right-icons {
@@ -230,23 +249,28 @@ h2 {
   .buttons-all-div {
     display: none;
   }
+
   .menu-for-small-screens {
     display: flex;
   }
   .menu-button {
-    background-color: #0000000d;
-    border: none;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: white;
     padding: 8px 16.5px;
-    text-transform: capitalize;
     font-size: 14px;
+    text-transform: capitalize;
     cursor: pointer;
+    transition: all 0.3s ease;
   }
-  .those-things-that-change-the-img-right-guy {
-    display: none;
-  }
+  .those-things-that-change-the-img-right-guy,
   .those-things-that-change-the-img-left-guy {
     display: none;
   }
+
   .text-on-img-div {
     top: 30%;
   }
@@ -257,6 +281,22 @@ h2 {
     max-width: 164px;
   }
 }
-@media (max-width: 600px){
-  
+@media (max-width: 600px) {
+  .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+
+    color: white;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+  }
+  .menu-button {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* for Safari */
+  }
 }

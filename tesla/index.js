@@ -1,5 +1,6 @@
 const $imgs = document.querySelectorAll(".background-img-guy");
 const $pargraph = document.querySelector(".pargraph");
+const $menuButton = document.querySelector(".menu-button");
 const $heading = document.querySelector(".h1");
 const $arrowButtons = document.querySelectorAll(".arrow-square-button");
 const $buttonsCircled = document.querySelectorAll(
@@ -23,15 +24,27 @@ function changeImage(nextIndex, imgs) {
   recurison();
 }
 function changeParagraph(num, p, heading) {
+  const isMobile = window.matchMedia("(max-width: 600px)").matches;
   if (num % 2 == 0) {
     heading.textContent = "Meet Model Y";
     p.textContent = "Electric Midsize SUV";
+
+    if (isMobile) {
+      $menuButton.classList.add("menu-dark");
+      $menuButton.classList.remove("menu-light");
+    }
     return;
   }
 
   heading.textContent = "Meet Model 3";
   p.textContent = "Electric Sport Sedan";
+
+  if (isMobile) {
+    $menuButton.classList.add("menu-light");
+    $menuButton.classList.remove("menu-dark");
+  }
 }
+
 function recurison() {
   if (thing) {
     return;
