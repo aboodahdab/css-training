@@ -4,13 +4,13 @@ const $menuButton = document.querySelector(".menu-button");
 const $heading = document.querySelector(".h1");
 const $arrowButtons = document.querySelectorAll(".arrow-square-button");
 const $buttonsCircled = document.querySelectorAll(
-  " .the-dot-things-that-change-the-img"
+  ".the-dot-things-that-change-the-img"
 );
-index = 0;
-num = 0;
-n = 0;
-thing = false;
-timeout = null;
+let index = 0;
+let num = 0;
+let n = 0;
+let thing = false;
+let timeout = null;
 function changeImage(nextIndex, imgs) {
   imgs[index].style.opacity = 0;
   index = (nextIndex + $imgs.length) % imgs.length;
@@ -45,12 +45,9 @@ function changeParagraph(num, p, heading) {
 }
 
 function recurison() {
-  if (thing) {
-    return;
-  }
+  clearTimeout(timeout);
   timeout = setTimeout(() => {
     changeImage(index + 1, $imgs);
-    recurison();
   }, 10000);
 }
 const check = ($elements) => {
