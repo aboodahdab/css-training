@@ -6,7 +6,6 @@ const $arrowButtons = document.querySelectorAll(".arrow-square-button");
 const $buttonsCircled = document.querySelectorAll(
   " .the-dot-things-that-change-the-img"
 );
-
 index = 0;
 num = 0;
 n = 0;
