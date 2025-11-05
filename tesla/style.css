@@ -133,7 +133,7 @@ h2 {
   gap: 12px;
   display: flex;
 }
-.text-on-img-div .buttons-div .order-now-button {
+.order-now-button {
   outline: none;
   color: white;
   border: none;
@@ -146,10 +146,10 @@ h2 {
   max-width: 200px;
   padding: 12px 0;
 }
-.text-on-img-div .buttons-div .order-now-button:hover {
+.order-now-button:hover {
   background: #3457b1;
 }
-.text-on-img-div .buttons-div .learn-more-button {
+.learn-more-button {
   outline: none;
   color: black;
   text-transform: capitalize;
@@ -162,7 +162,7 @@ h2 {
   max-width: 200px;
   padding: 12px 0;
 }
-.text-on-img-div .buttons-div .learn-more-button:hover {
+.learn-more-button:hover {
   background-color: #eee;
 }
 .those-things-that-change-the-img-left-guy {
@@ -252,7 +252,62 @@ h2 {
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
 }
+.small-images-div {
+  padding: 48px;
+  display: flex;
 
+  gap: 20px;
+}
+.small-img-div {
+  max-width: 1024px;
+  width: 100%;
+  height: 580px;
+  position: relative;
+}
+.small-img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  min-width: 1024px;
+  max-width: 1024px;
+
+  border-radius: 6px;
+}
+.the-high-p-div {
+  top: 24px;
+  left: 43px;
+  color: white;
+  font-size: 17px;
+  position: absolute;
+}
+
+.small-img-things-div {
+  position: absolute;
+  left: 40px;
+
+  bottom: 28px;
+}
+.buttons-div-2 {
+  display: flex;
+  margin: 0;
+  margin-top: 10px;
+  gap: 8px;
+}
+.text-on-small-img {
+  margin-bottom: 20px;
+}
+.text-on-small-img a {
+  color: white;
+
+  font-size: 20px;
+}
+.text-on-small-img h1 {
+  color: white;
+  font-size: 48px;
+}
+.small-img-things-div button {
+  width: 160px;
+}
 @media (max-width: 1200px) {
   .right-icons {
     display: none;
