@@ -92,5 +92,10 @@ document.addEventListener("DOMContentLoaded", () => {
     focus: "center",
     gap: "3rem",
     drag: true,
+    breakpoints: {
+      1200: {
+        gap: "1rem",
+      },
+    },
   }).mount();
 });
