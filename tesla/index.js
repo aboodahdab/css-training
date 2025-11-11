@@ -83,6 +83,7 @@ $arrowButtons.forEach((arrow) => {
     changeTheAllowedButton($buttonsCircled);
   });
 });
+
 recurison();
 document.addEventListener("DOMContentLoaded", () => {
   new Splide("#my-carousel", {
@@ -90,5 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
     perPage: 1,
     focus: "center",
     gap: "3rem",
+    drag: true,
+    breakpoints: {
+      1200: {
+        gap: "1rem",
+      },
+    },
   }).mount();
 });
