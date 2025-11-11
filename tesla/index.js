@@ -8,7 +8,7 @@ const $buttonsCircled = document.querySelectorAll(
 );
 let index = 0;
 let num = 0;
-let n = 0;
+
 let thing = false;
 let timeout = null;
 function changeImage(nextIndex, imgs) {
@@ -84,3 +84,11 @@ $arrowButtons.forEach((arrow) => {
   });
 });
 recurison();
+document.addEventListener("DOMContentLoaded", () => {
+  new Splide("#my-carousel", {
+    type: "slide",
+    perPage: 1,
+    focus: "center",
+    gap: "3rem",
+  }).mount();
+});
