@@ -90,10 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
     type: "slide",
     perPage: 1,
     focus: "center",
-    gap: "3rem",
+    gap: "2.5rem",
     drag: true,
     breakpoints: {
       1200: {
+        gap: "1rem",
+      },
+      600: {
         gap: "1rem",
       },
     },
