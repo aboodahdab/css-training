@@ -3,7 +3,7 @@ const $pargraph = document.querySelector(".pargraph");
 const $menuButton = document.querySelector(".menu-button");
 const $heading = document.querySelector(".h1");
 
-const $arrowButtons = document.querySelectorAll(".arrow-square-button1");
+const $arrowButtons = document.querySelectorAll(".arrow-square-button");
 const $buttonsCircled = document.querySelectorAll(
   ".the-dot-things-that-change-the-img"
 );
@@ -11,46 +11,50 @@ const imageBtnRight = document.querySelector(".imageBtnBroRight");
 const imageBtnLeft = document.querySelector(".imageBtnBroLeft");
 
 let index = 0;
-let num = 0;
+let ImageNum = 0;
 
-let thing = false;
-let timeout = null;
+let isTimeOut = null;
 function changeImage(nextIndex, imgs) {
   imgs[index].style.opacity = 0;
   index = (nextIndex + $imgs.length) % imgs.length;
   imgs[index].style.opacity = 1;
 
-  num += 1;
+  ImageNum += 1;
   changeTheAllowedButton($buttonsCircled);
-  changeParagraph(num, $pargraph, $heading);
-  clearTimeout(timeout);
-  recurison();
+  changeParagraph(ImageNum, $pargraph, $heading);
+  clearTimeout(isTimeOut);
+  restartAutoPlay();
 }
+
 function changeParagraph(num, p, heading) {
   const isMobile = window.matchMedia("(max-width: 600px)").matches;
   if (num % 2 == 0) {
     heading.textContent = "Meet Model Y";
     p.textContent = "Electric Midsize SUV";
 
-    if (isMobile) {
-      $menuButton.classList.add("menu-dark");
-      $menuButton.classList.remove("menu-light");
-    }
+    if (isMobile) swtichMode("dark");
     return;
   }
 
   heading.textContent = "Meet Model 3";
   p.textContent = "Electric Sport Sedan";
 
-  if (isMobile) {
+  if (isMobile) swtichMode("light");
+}
+function swtichMode(mode) {
+  if (mode === "dark") {
+    $menuButton.classList.add("menu-dark");
+    $menuButton.classList.remove("menu-light");
+  }
+  if (mode === "light") {
     $menuButton.classList.add("menu-light");
     $menuButton.classList.remove("menu-dark");
   }
 }
 
-function recurison() {
-  clearTimeout(timeout);
-  timeout = setTimeout(() => {
+function restartAutoPlay() {
+  clearTimeout(isTimeOut);
+  isTimeOut = setTimeout(() => {
     changeImage(index + 1, $imgs);
   }, 10000);
 }
@@ -66,7 +70,7 @@ $buttonsCircled.forEach((circle) => {
     if (circle == document.getElementById("active")) {
       return;
     }
-    thing = true;
+
     changeImage(index + 1, $imgs);
     check($buttonsCircled);
     circle.id = "active";
@@ -81,14 +85,16 @@ function changeTheAllowedButton(ele) {
 
 $arrowButtons.forEach((arrow) => {
   arrow.addEventListener("click", () => {
-    thing = true;
     changeImage(index + 1, $imgs);
 
     changeTheAllowedButton($buttonsCircled);
   });
 });
 
-recurison();
+restartAutoPlay();
+
+// splide logic
+
 document.addEventListener("DOMContentLoaded", () => {
   let splide = new Splide("#my-carousel", {
     type: "slide",
@@ -122,54 +128,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  if (ToggleSmallImagesArrows(imageBtnLeft, imageBtnRight)) {
+  function handleSlideIndex(index, total) {
+    const isMobile = window.matchMedia("(max-width: 1200px)").matches;
+
+    if (isMobile) {
+      imageBtnLeft.style.display = "none";
+      imageBtnRight.style.display = "none";
+      return false;
+    }
+    const isFirst = index === 0;
+    const isLast = index === total - 1;
+
+    // show/hide arrows
+    imageBtnLeft.style.display = isFirst ? "none" : "flex";
+    imageBtnRight.style.display = isLast ? "none" : "flex";
+    return true;
+  }
+  window.addEventListener("resize", () => {
+    handleSlideIndex(splide.index, HowMuchSlides);
+  });
+  if (handleSlideIndex(splide.index, HowMuchSlides)) {
     imageBtnLeft.addEventListener("click", () => {
-      console.log(splide.index, "what the heck");
       splide.go("-1");
-      imageBtnRight.style.display = "flex";
-
-      if (splide.index === 0) {
-        imageBtnLeft.style.display = "none";
-        return;
-      }
-
-      imageBtnLeft.style.display = "flex";
+      handleSlideIndex(splide.index, HowMuchSlides);
     });
     imageBtnRight.addEventListener("click", () => {
       splide.go("+1");
-      if (splide.index === HowMuchSlides - 1) {
-        imageBtnRight.style.display = "none";
-      } else {
-        imageBtnRight.style.display = "flex";
-      }
-
-      imageBtnLeft.style.display = "flex";
+      handleSlideIndex(splide.index, HowMuchSlides);
     });
   }
 });
-function ToggleSmallImagesArrows(element1, element2) {
-  const isMobile = window.matchMedia("(max-width: 1200px)").matches;
-  console.log(isMobile);
-  if (isMobile) {
-    element1.style.display = "none";
-    element2.style.display = "none";
-
-    return false;
-  }
-
-  element1.style.display = "none";
-
-  element2.style.display = "flex";
-  return true;
-}
-window.addEventListener("resize", () => {
-  ToggleSmallImagesArrows(imageBtnLeft, imageBtnRight);
-});
-function handleSlideIndex(index, total) {
-  const isFirst = index === 0;
-  const isLast = index === total - 1;
-
-  // show/hide arrows
-  imageBtnLeft.style.display = isFirst ? "none" : "flex";
-  imageBtnRight.style.display = isLast ? "none" : "flex";
-}
