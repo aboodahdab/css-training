@@ -2,10 +2,14 @@ const $imgs = document.querySelectorAll(".background-img-guy");
 const $pargraph = document.querySelector(".pargraph");
 const $menuButton = document.querySelector(".menu-button");
 const $heading = document.querySelector(".h1");
-const $arrowButtons = document.querySelectorAll(".arrow-square-button");
+
+const $arrowButtons = document.querySelectorAll(".arrow-square-button1");
 const $buttonsCircled = document.querySelectorAll(
   ".the-dot-things-that-change-the-img"
 );
+const imageBtnRight = document.querySelector(".imageBtnBroRight");
+const imageBtnLeft = document.querySelector(".imageBtnBroLeft");
+
 let index = 0;
 let num = 0;
 
@@ -51,7 +55,7 @@ function recurison() {
   }, 10000);
 }
 const check = ($elements) => {
-  for (i = 0; i < $elements.length; i += 1) {
+  for (let i = 0; i < $elements.length; i += 1) {
     if ($elements[i].id === "active") {
       $elements[i].id = "";
     }
@@ -86,12 +90,13 @@ $arrowButtons.forEach((arrow) => {
 
 recurison();
 document.addEventListener("DOMContentLoaded", () => {
-  new Splide("#my-carousel", {
+  let splide = new Splide("#my-carousel", {
     type: "slide",
     perPage: 1,
     focus: "center",
     gap: "2.5rem",
     drag: true,
+    arrows: false,
     breakpoints: {
       1200: {
         gap: "1rem",
@@ -101,4 +106,70 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     },
   }).mount();
+  const slides = splide.Components.Slides.get();
+  const HowMuchSlides = slides.length;
+
+  const splidePaginationPages = document.querySelectorAll(
+    ".splide__pagination__page"
+  );
+
+  splidePaginationPages.forEach((e) => {
+    e.addEventListener("click", (e) => {
+      const arr = [...splidePaginationPages];
+      paginationIndex = arr.indexOf(e.target);
+
+      handleSlideIndex(paginationIndex, HowMuchSlides);
+    });
+  });
+
+  if (ToggleSmallImagesArrows(imageBtnLeft, imageBtnRight)) {
+    imageBtnLeft.addEventListener("click", () => {
+      console.log(splide.index, "what the heck");
+      splide.go("-1");
+      imageBtnRight.style.display = "flex";
+
+      if (splide.index === 0) {
+        imageBtnLeft.style.display = "none";
+        return;
+      }
+
+      imageBtnLeft.style.display = "flex";
+    });
+    imageBtnRight.addEventListener("click", () => {
+      splide.go("+1");
+      if (splide.index === HowMuchSlides - 1) {
+        imageBtnRight.style.display = "none";
+      } else {
+        imageBtnRight.style.display = "flex";
+      }
+
+      imageBtnLeft.style.display = "flex";
+    });
+  }
 });
+function ToggleSmallImagesArrows(element1, element2) {
+  const isMobile = window.matchMedia("(max-width: 1200px)").matches;
+  console.log(isMobile);
+  if (isMobile) {
+    element1.style.display = "none";
+    element2.style.display = "none";
+
+    return false;
+  }
+
+  element1.style.display = "none";
+
+  element2.style.display = "flex";
+  return true;
+}
+window.addEventListener("resize", () => {
+  ToggleSmallImagesArrows(imageBtnLeft, imageBtnRight);
+});
+function handleSlideIndex(index, total) {
+  const isFirst = index === 0;
+  const isLast = index === total - 1;
+
+  // show/hide arrows
+  imageBtnLeft.style.display = isFirst ? "none" : "flex";
+  imageBtnRight.style.display = isLast ? "none" : "flex";
+}
