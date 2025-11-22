@@ -90,18 +90,46 @@
         </div>
       </div>
       <div class="homepage-img-div">
-        <img
-          src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Promo-Meet-Model-Y-Desktop.jpg"
-          alt=""
-          class="background-img-guy"
-          id="justanimg"
-        />
+        <picture>
+          <source
+            media="(max-width: 600px)"
+            srcset="
+              https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Promo-Meet-Model-Y-Mobile.jpg
+            "
+          />
+          <source
+            media="(max-width: 1200px)"
+            srcset="
+              https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Promo-Meet-Model-Y-Tablet.jpg
+            "
+          />
+          <img
+            src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Promo-Meet-Model-Y-Desktop.jpg"
+            alt=""
+            class="background-img-guy"
+            id="justanimg"
+          />
+        </picture>
+        <picture>
+          <source
+            media="(max-width: 600px)"
+            srcset="
+              https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Promo-Meet-Model-3-Mobile.jpg
+            "
+          />
+          <source
+            media="(max-width: 1200px)"
+            srcset="
+              https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Promo-Meet-Model-3-Tablet.jpg
+            "
+          />
 
-        <img
-          src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Promo-Meet-Model-3-Desktop.jpg"
-          alt=""
-          class="background-img-guy"
-        />
+          <img
+            src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Promo-Meet-Model-3-Desktop.jpg"
+            alt=""
+            class="background-img-guy"
+          />
+        </picture>
 
         <div class="text-on-img-div">
           <h1 class="h1">meet model Y</h1>
