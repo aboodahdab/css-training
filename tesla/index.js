@@ -14,6 +14,7 @@ let index = 0;
 let ImageNum = 0;
 
 let isTimeOut = null;
+
 function changeImage(nextIndex, imgs) {
   imgs[index].style.opacity = 0;
   index = (nextIndex + $imgs.length) % imgs.length;
@@ -154,6 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     imageBtnRight.addEventListener("click", () => {
       splide.go("+1");
+
       handleSlideIndex(splide.index, HowMuchSlides);
     });
   }
