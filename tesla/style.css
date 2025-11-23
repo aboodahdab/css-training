@@ -12,7 +12,9 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-
+:root {
+  --navbar-height: 56px;
+}
 .wrapper {
   display: flex;
   height: 100%;
@@ -22,10 +24,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  width: 100%;
   background-color: white;
   padding: 0px 34px;
-  min-height: 56px;
+  min-height: var(--navbar-height);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 .tsla-icon-div {
@@ -83,12 +88,12 @@ svg {
 .homepage-img-div {
   position: relative;
   width: 100%;
-
+  padding-top: var(--navbar-height);
   height: 100%;
 }
 .background-img-guy {
   width: 100%;
-  height: 85dvh;
+  height: 90dvh;
 
   object-fit: cover;
 
@@ -397,7 +402,7 @@ h2 {
     font-size: 40px;
   }
   .homepage-img-div img {
-    height: 85dvh;
+    height: 90dvh;
   }
   .menu-for-small-screens {
     display: flex;
@@ -477,8 +482,12 @@ h2 {
   }
 
   .homepage-img-div img {
-    height: 85dvh;
+    height: 90dvh;
+
     /* content: url("https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Promo-Meet-Model-Y-Mobile.jpg"); */
+  }
+  .homepage-img-div {
+    padding-top: 0;
   }
   .text-on-img-div {
     top: 20%;
