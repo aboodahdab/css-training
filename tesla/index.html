@@ -4,12 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Electric Cars, Solar & Clean Energy</title>
-    <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="teslafavicon.webp" type="image/x-icon" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -329,9 +340,27 @@
           </ul>
         </div>
       </section>
+      <div class="map-section-div">
+        <div id="map"></div>
+        <div>
+          <div class="arrow-controls-div">
+            <button class="arrow-map-button">lsjlsfj</button>
+          </div>
+          <div class="find-me-controls-div">
+            <button class="find-me-button">
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMi4wMDAyIDE4LjMwMDJDMTUuNjYyOCAxOC4zMDAyIDE4LjYzMTggMTUuNDc5NiAxOC42MzE4IDEyLjAwMDJDMTguNjMxOCA4LjUyMDggMTUuNjYyOCA1LjcwMDIgMTIuMDAwMiA1LjcwMDJDOC4zMzc3MSA1LjcwMDIgNS4zNjg2NSA4LjUyMDggNS4zNjg2NSAxMi4wMDAyQzUuMzY4NjUgMTUuNDc5NiA4LjMzNzcxIDE4LjMwMDIgMTIuMDAwMiAxOC4zMDAyWk0xMi4wMDAyIDE2LjUwMDJDMTQuNjE2MyAxNi41MDAyIDE2LjczNzEgMTQuNDg1NSAxNi43MzcxIDEyLjAwMDJDMTYuNzM3MSA5LjUxNDk1IDE0LjYxNjMgNy41MDAyMyAxMi4wMDAyIDcuNTAwMjNDOS4zODQxNiA3LjUwMDIzIDcuMjYzNCA5LjUxNDk1IDcuMjYzNCAxMi4wMDAyQzcuMjYzNCAxNC40ODU1IDkuMzg0MTYgMTYuNTAwMiAxMi4wMDAyIDE2LjUwMDJaIiBmaWxsPSIjMzkzQzQxIi8+CjxlbGxpcHNlIGN4PSIxMi4wMDAyIiBjeT0iMTIuMDAwMiIgcng9IjEuODk0NzQiIHJ5PSIxLjgiIGZpbGw9IiMzOTNDNDEiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMS4wNTI3IDMuOTQ3MzdDMTEuMDUyNyAzLjQyNDE1IDExLjQ3NjkgMyAxMi4wMDAxIDNWM0MxMi41MjMzIDMgMTIuOTQ3NSAzLjQyNDE1IDEyLjk0NzUgMy45NDczN1Y1LjY1MjYzQzEyLjk0NzUgNi4xNzU4NSAxMi41MjMzIDYuNiAxMi4wMDAxIDYuNlY2LjZDMTEuNDc2OSA2LjYgMTEuMDUyNyA2LjE3NTg1IDExLjA1MjcgNS42NTI2M1YzLjk0NzM3WiIgZmlsbD0iIzM5M0M0MSIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTExLjA1MjcgMTguMzQ3M0MxMS4wNTI3IDE3LjgyNDEgMTEuNDc2OSAxNy4zOTk5IDEyLjAwMDEgMTcuMzk5OVYxNy4zOTk5QzEyLjUyMzMgMTcuMzk5OSAxMi45NDc1IDE3LjgyNDEgMTIuOTQ3NSAxOC4zNDczVjIwLjA1MjVDMTIuOTQ3NSAyMC41NzU4IDEyLjUyMzMgMjAuOTk5OSAxMi4wMDAxIDIwLjk5OTlWMjAuOTk5OUMxMS40NzY5IDIwLjk5OTkgMTEuMDUyNyAyMC41NzU4IDExLjA1MjcgMjAuMDUyNVYxOC4zNDczWiIgZmlsbD0iIzM5M0M0MSIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTMuOSAxMi45MDA0QzMuNDAyOTQgMTIuOTAwNCAzIDEyLjQ5NzQgMyAxMi4wMDA0VjEyLjAwMDRDMyAxMS41MDMzIDMuNDAyOTQgMTEuMTAwNCAzLjkgMTEuMTAwNEg1Ljg4OTQ3QzYuMzg2NTMgMTEuMTAwNCA2Ljc4OTQ3IDExLjUwMzMgNi43ODk0NyAxMi4wMDA0VjEyLjAwMDRDNi43ODk0NyAxMi40OTc0IDYuMzg2NTMgMTIuOTAwNCA1Ljg4OTQ3IDEyLjkwMDRIMy45WiIgZmlsbD0iIzM5M0M0MSIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE4LjExMDQgMTIuOTAwNEMxNy42MTM0IDEyLjkwMDQgMTcuMjEwNCAxMi40OTc0IDE3LjIxMDQgMTIuMDAwNFYxMi4wMDA0QzE3LjIxMDQgMTEuNTAzMyAxNy42MTM0IDExLjEwMDQgMTguMTEwNCAxMS4xMDA0SDIwLjA5OTlDMjAuNTk3IDExLjEwMDQgMjAuOTk5OSAxMS41MDMzIDIwLjk5OTkgMTIuMDAwNFYxMi4wMDA0QzIwLjk5OTkgMTIuNDk3NCAyMC41OTcgMTIuOTAwNCAyMC4wOTk5IDEyLjkwMDRIMTguMTEwNFoiIGZpbGw9IiMzOTNDNDEiLz4KPC9zdmc+Cg=="
+                alt=""
+              />
+              <p>find me</p>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script src="index.js"></script>
   </body>
