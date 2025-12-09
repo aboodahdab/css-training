@@ -102,6 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     perPage: 1,
     focus: "center",
     gap: "2.5rem",
+    padding: { left: "2rem", right: "2rem" },
     drag: true,
     arrows: false,
     breakpoints: {
@@ -109,6 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
         gap: "1rem",
       },
       600: {
+        padding: { left: "0.8rem", right: "0.8rem" },
+
         gap: "1rem",
       },
     },
