@@ -12,6 +12,8 @@ const imageBtnLeft = document.querySelector(".imageBtnBroLeft");
 const findMeButton = document.querySelector(".find-me-button");
 const arrowMapButton = document.querySelector(".expand-btn");
 const hiddenBtns = document.querySelectorAll(".hidden-btn");
+const zoomInBtn = document.querySelector(".plus-btn");
+const zoomOutBtn = document.querySelector(".minus-btn");
 let index = 0;
 let ImageNum = 0;
 let howMuchTimesExpandIsPressed = 0;
@@ -172,7 +174,7 @@ const map = L.map("map", {
 
 // Gray Tesla-like map background
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: 7,
+  maxZoom: 8,
   minZoom: 4,
 }).addTo(map);
 
@@ -181,6 +183,13 @@ const teslaDot = L.divIcon({
   className: "tesla-dot",
   iconSize: [6, 6],
   iconAnchor: [5, 5], // center it
+});
+zoomInBtn.addEventListener("click", () => {
+  map.zoomIn();
+});
+
+zoomOutBtn.addEventListener("click", () => {
+  map.zoomOut();
 });
 
 const teslaDotGray = L.divIcon({
