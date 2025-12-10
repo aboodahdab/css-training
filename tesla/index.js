@@ -10,9 +10,11 @@ const $buttonsCircled = document.querySelectorAll(
 const imageBtnRight = document.querySelector(".imageBtnBroRight");
 const imageBtnLeft = document.querySelector(".imageBtnBroLeft");
 const findMeButton = document.querySelector(".find-me-button");
+const arrowMapButton = document.querySelector(".expand-btn");
+const hiddenBtns = document.querySelectorAll(".hidden-btn");
 let index = 0;
 let ImageNum = 0;
-
+let howMuchTimesExpandIsPressed = 0;
 let isTimeOut = null;
 
 function changeImage(nextIndex, imgs) {
@@ -313,4 +315,17 @@ superchargers.forEach((s) => {
 });
 locations.forEach((location) => {
   L.marker(location.coords, { icon: teslaDotGray }).addTo(map);
+});
+arrowMapButton.addEventListener("click", () => {
+  howMuchTimesExpandIsPressed += 1;
+  if (howMuchTimesExpandIsPressed % 2 == 0) {
+    hiddenBtns.forEach((ele) => {
+      ele.style.display = "none";
+    });
+  }
+  if (howMuchTimesExpandIsPressed % 2 !== 0) {
+    hiddenBtns.forEach((ele) => {
+      ele.style.display = "block";
+    });
+  }
 });

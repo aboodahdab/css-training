@@ -391,25 +391,74 @@ h2 {
   z-index: 1000000;
   bottom: 48px;
   right: 56px;
+  display: grid;
+  grid-template-columns: 90px 90px 90px 90px; /* 4 columns */
+  grid-template-rows: 90px 90px 90px; /* 3 rows */
+  gap: 10px;
 
   position: absolute;
 }
-.arrow-controls-div .arrow-map-button {
-  background: black;
-  display: block;
-  color: white;
+.arrow-controls-div {
+  z-index: 1000000;
+  bottom: 48px;
+  right: 56px;
+  display: grid;
+  grid-template-columns: 40px 40px 40px 40px; /* Match button size */
+  grid-template-rows: 40px 40px 40px; /* Match button size */
+  gap: 16px; /* Bigger gap */
+  position: absolute;
+}
+
+.arrow-map-button {
+  background: white;
+  display: flex; /* Add this */
+  align-items: center; /* Add this */
+  justify-content: center; /* Add this */
+  color: black;
   border: 0;
   margin: 0;
-  padding: 0;
 
+  padding: 0;
   cursor: pointer;
   user-select: none;
-  width: 40px;
-  height: 40px;
+  width: 40px; /* Bigger buttons */
+  height: 40px; /* Bigger buttons */
   border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s;
+  font-size: 16px; /* Bigger icons */
+}
 
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
-  transition: background 0.2s;
+.up-btn {
+  grid-column: 2;
+  grid-row: 1;
+} /* Column 2, Row 1 */
+.plus-btn {
+  grid-column: 3;
+  grid-row: 1;
+} /* Column 3, Row 1 */
+.left-btn {
+  grid-column: 1;
+  grid-row: 2;
+} /* Column 1, Row 2 */
+.right-btn {
+  grid-column: 3;
+  grid-row: 2;
+} /* Column 3, Row 2 */
+.down-btn {
+  grid-column: 2;
+  grid-row: 3;
+} /* Column 2, Row 3 */
+.minus-btn {
+  grid-column: 3;
+  grid-row: 3;
+} /* Column 3, Row 3 */
+.expand-btn {
+  grid-column: 4;
+  grid-row: 3;
+} /* Column 4, Row 3 */
+.hidden-btn {
+  display: none;
 }
 .find-me-controls-div {
   z-index: 1000000;
@@ -441,10 +490,16 @@ h2 {
   color: black;
   text-transform: capitalize;
 }
+i {
+  color: #676767;
+  font-size: 18px;
+}
+
 #map {
   height: 550px;
   max-width: 100%;
   width: 100%;
+  position: relative;
 }
 @media (max-width: 1200px) {
   .order-now-button {
@@ -549,7 +604,6 @@ h2 {
     padding-top: 12px;
     padding-bottom: 12px;
   }
-
   .text-on-img-div h1 {
     font-size: 40px;
   }
@@ -563,12 +617,21 @@ h2 {
     left: 20px;
     bottom: 16px;
   }
-
+  .splide__pagination {
+    bottom: 12px !important; /* place it exactly */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   .homepage-img-div img {
     height: 82.5dvh;
 
     /* content: url("https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Promo-Meet-Model-Y-Mobile.jpg"); */
   }
+  .splide {
+    padding-bottom: 40px !important; /* restore bottom space */
+  }
+
   .homepage-img-div {
     padding-top: 0;
   }
@@ -581,6 +644,12 @@ h2 {
   .buttons-div-2 button {
     max-width: 145px;
   }
+  /* .map-section-div {
+    padding: 0;
+    padding-bottom: 12px;
+    width: 578px;
+    height: 400px;
+  } */
 }
 
 .leaflet-control-attribution a {
