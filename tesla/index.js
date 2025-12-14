@@ -14,6 +14,10 @@ const arrowMapButton = document.querySelector(".expand-btn");
 const hiddenBtns = document.querySelectorAll(".hidden-btn");
 const zoomInBtn = document.querySelector(".plus-btn");
 const zoomOutBtn = document.querySelector(".minus-btn");
+const moveRightBtn = document.querySelector(".right-btn");
+const moveLeftBtn = document.querySelector(".left-btn");
+const moveDownBtn = document.querySelector(".down-btn");
+const moveUpBtn = document.querySelector(".up-btn");
 let index = 0;
 let ImageNum = 0;
 let howMuchTimesExpandIsPressed = 0;
@@ -170,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const map = L.map("map", {
   zoomControl: false,
-}).setView([39.8283, -98.5795], 4.5);
+}).setView([34.64980615432917, -99.32743667338804], 4.5);
 
 // Gray Tesla-like map background
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -237,6 +241,8 @@ const locations = [
 ];
 
 const superchargers = [
+  { name: "madrid", coords: [40.4166909, -3.7003454] },
+
   { name: "Station 1", coords: [34.0522, -118.2437] }, // Los Angeles
   { name: "Station 2", coords: [36.1699, -115.1398] }, // Las Vegas
   { name: "Station 3", coords: [40.7128, -74.006] }, // NYC
@@ -288,6 +294,29 @@ const superchargers = [
   { name: "Station 49", coords: [28.5383, -81.3792] }, // Orlando
   { name: "Station 50", coords: [40.8258, -96.6852] }, // Lincoln
 ];
+superchargers.forEach((s) => {
+  L.marker(s.coords, { icon: teslaDot }).addTo(map);
+});
+locations.forEach((location) => {
+  L.marker(location.coords, { icon: teslaDotGray }).addTo(map);
+});
+moveRightBtn.addEventListener("click", () => {
+  const offset = new L.Point(500, 0);
+  map.panBy(offset);
+});
+moveLeftBtn.addEventListener("click", () => {
+  const offset = new L.Point(-500, 0);
+  map.panBy(offset);
+});
+moveUpBtn.addEventListener("click", () => {
+  const offset = new L.Point(0, -500);
+  map.panBy(offset);
+});
+moveDownBtn.addEventListener("click", () => {
+  const offset = new L.Point(0, 500);
+  map.panBy(offset);
+});
+
 findMeButton.addEventListener("click", () => {
   // Define the location success handler
   function onLocationFound(e) {
@@ -319,12 +348,6 @@ findMeButton.addEventListener("click", () => {
   });
 });
 
-superchargers.forEach((s) => {
-  L.marker(s.coords, { icon: teslaDot }).addTo(map);
-});
-locations.forEach((location) => {
-  L.marker(location.coords, { icon: teslaDotGray }).addTo(map);
-});
 arrowMapButton.addEventListener("click", () => {
   howMuchTimesExpandIsPressed += 1;
   if (howMuchTimesExpandIsPressed % 2 == 0) {
