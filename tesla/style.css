@@ -405,7 +405,7 @@ h2 {
   display: grid;
   grid-template-columns: 40px 40px 40px 40px; /* Match button size */
   grid-template-rows: 40px 40px 40px; /* Match button size */
-  gap: 16px; /* Bigger gap */
+  gap: 11.5px; /* Bigger gap */
   position: absolute;
 }
 
