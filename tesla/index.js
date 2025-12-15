@@ -319,8 +319,7 @@ moveDownBtn.addEventListener("click", () => {
 // let osmLayer = L.tileLayer(
 //   "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
 //   {
-//     attribution:
-//       '&copy; <a href="www.openstreetmap.org">OpenStreetMap</a> contributors',
+//     attribution: '&copy; ${<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 //   }
 // ).addTo(map);
 
@@ -333,13 +332,12 @@ moveDownBtn.addEventListener("click", () => {
 //   }
 // );
 
-// 4. Create a layers control object
 // let baseMaps = {
 //   OpenStreetMap: osmLayer,
 //   Satellite: satLayer,
 // };
 
-// L.control.layers(baseMaps).addTo(map);
+L.control.layers(baseMaps).addTo(map);
 let user_location = null;
 findMeButton.addEventListener("click", () => {
   // Define the location success handler

@@ -387,21 +387,11 @@ h2 {
   padding: 40px 40px;
   position: relative;
 }
-.arrow-controls-div {
-  z-index: 1000000;
-  bottom: 48px;
-  right: 56px;
-  display: grid;
-  grid-template-columns: 90px 90px 90px 90px; /* 4 columns */
-  grid-template-rows: 90px 90px 90px; /* 3 rows */
-  gap: 10px;
 
-  position: absolute;
-}
 .arrow-controls-div {
   z-index: 1000000;
   bottom: 48px;
-  right: 56px;
+  right: 52px;
   display: grid;
   grid-template-columns: 40px 40px 40px 40px; /* Match button size */
   grid-template-rows: 40px 40px 40px; /* Match button size */
@@ -689,6 +679,6 @@ i {
   } */
 }
 
-.leaflet-control-attribution a {
+.leaflet-control-attribution {
   display: none;
 }
