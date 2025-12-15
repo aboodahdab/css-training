@@ -316,19 +316,53 @@ moveDownBtn.addEventListener("click", () => {
   const offset = new L.Point(0, 500);
   map.panBy(offset);
 });
+// let osmLayer = L.tileLayer(
+//   "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+//   {
+//     attribution:
+//       '&copy; <a href="www.openstreetmap.org">OpenStreetMap</a> contributors',
+//   }
+// ).addTo(map);
 
+// let satLayer = L.tileLayer(
+//   "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+//   {
+//     attribution:
+//       "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, GetMapping, Aerogrid, IGN, IGP, Topo, &",
+//     maxZoom: 29,
+//   }
+// );
+
+// 4. Create a layers control object
+// let baseMaps = {
+//   OpenStreetMap: osmLayer,
+//   Satellite: satLayer,
+// };
+
+// L.control.layers(baseMaps).addTo(map);
+let user_location = null;
 findMeButton.addEventListener("click", () => {
   // Define the location success handler
+
   function onLocationFound(e) {
     const lat = e.latlng.lat;
     const lng = e.latlng.lng;
+
+    if (user_location && map.hasLayer(user_location)) {
+      console.log("sorry there is a marker already");
+      return;
+    }
 
     console.log("Found location! Latitude:");
 
     // Clear the listeners after finding the location
     map.off("locationfound", onLocationFound);
     map.off("locationerror", onLocationError);
-    L.marker([lat, lng]).addTo(map).bindPopup("Your Location").openPopup();
+    user_location = L.marker([lat, lng])
+      .addTo(map)
+      .bindPopup("Your Location")
+      .openPopup();
+    console.log(map.hasLayer([lat, lng]));
   }
 
   // Define the error handler

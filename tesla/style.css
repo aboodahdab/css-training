@@ -575,6 +575,9 @@ i {
   .text-on-small-img a {
     font-size: 17px;
   }
+  #map {
+    height: 450px;
+  }
 }
 @media (max-width: 900px) {
   .splide {
@@ -655,6 +658,28 @@ i {
   }
   .buttons-div-2 button {
     max-width: 145px;
+  }
+  .map-section-div {
+    padding: 0;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+  .find-me-controls-div {
+    z-index: 1000000;
+
+    width: 100%;
+    max-width: 100px;
+    left: 12px;
+    bottom: 40.5px;
+
+    position: absolute;
+  }
+  .arrow-controls-div {
+    bottom: 40.5px;
+    right: 12px;
+  }
+  #map {
+    height: 400px;
   }
   /* .map-section-div {
     padding: 0;
