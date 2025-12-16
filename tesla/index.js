@@ -337,7 +337,7 @@ moveDownBtn.addEventListener("click", () => {
 //   Satellite: satLayer,
 // };
 
-L.control.layers(baseMaps).addTo(map);
+// L.control.layers(baseMaps).addTo(map);
 let user_location = null;
 findMeButton.addEventListener("click", () => {
   // Define the location success handler
