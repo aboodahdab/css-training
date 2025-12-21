@@ -1,0 +1,91 @@
+html,
+body {
+  height: 100%;
+  background-color: #4d4d4d;
+  color: white;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.navbar {
+  display: flex;
+  position: relative;
+  gap: calc(32px - 16.5px);
+  background-color: #111111;
+  padding-left: 46px;
+  /* padding-top: 4px; */
+  height: 54px;
+
+  padding-right: 46px;
+  align-items: center;
+}
+.navbar-logo a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-logo-star {
+  fill: white;
+  width: 25px;
+  height: 25px;
+  animation: spinMe 1s forwards;
+}
+.navbar .navbar-things-div {
+  display: flex;
+  gap: calc(22px - 16.5px);
+  height: 100%;
+  align-items: center;
+}
+.navbar-things-div .navbar-thing-div {
+  font-family: MD Primer Bold, Rubik, Lato, Lucida Grande, Lucida Sans Unicode,
+    Tahoma, Sans-Serif;
+  font-style: normal;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  height: 54px;
+  padding: 0px 16.5px;
+  font-size: 13px;
+
+  transition: all 0.2s ease;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-things-div .navbar-thing-div div {
+  margin-top: 8px;
+  cursor: pointer;
+}
+.navbar-things-div .navbar-thing-div:hover {
+  color: #ff7a18;
+  background: hsla(0, 0%, 100%, 0.1);
+}
+.navbar .search-icon-div {
+  margin-left: auto;
+  padding-top: 12px;
+  position: fixed;
+  right: 3rem;
+  cursor: pointer;
+}
+.navbar .search-icon-div:hover {
+  opacity: 0.66;
+}
+
+@keyframes spinMe {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(720deg);
+  }
+}
