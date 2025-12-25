@@ -143,24 +143,14 @@ body {
   /* No border radius needed - parent handles it */
 }
 
-.a-css-tags-div {
-  display: flex;
-  margin-bottom: 12px;
-  gap: 12px;
-}
-.a-css-tags-div .tag-a {
-  color: #ff7a18;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-size: 10.85px;
-  font-family: bold;
-}
 .article-title-div {
   margin-bottom: 28px;
 }
 .article-title-div a {
   color: black;
   text-decoration: none;
+
+  width: 100%;
 
   font-size: 50px;
 }
