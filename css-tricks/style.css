@@ -37,7 +37,7 @@ body {
   fill: white;
   width: 25px;
   height: 25px;
-  animation: spinMe 1s forwards;
+  animation: spinTheWheel 1s forwards;
 }
 .navbar .navbar-things-div {
   display: flex;
@@ -80,8 +80,126 @@ body {
 .navbar .search-icon-div:hover {
   opacity: 0.66;
 }
+.homepage-center-div {
+  display: flex;
 
-@keyframes spinMe {
+  width: calc(100% - 96px);
+  margin: 48px;
+  border-radius: 8px;
+  overflow: hidden; /* This clips the rounded corners */
+}
+
+.a-hompeage-img-center {
+  position: relative;
+  width: 50%;
+  display: block;
+}
+.a-hompeage-img-center .article-homepage-img {
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+
+  object-position: center top;
+  display: block;
+
+  /* No border radius needed - parent handles it */
+}
+.a-hompeage-img-center ::before {
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(130deg, #ff7a18, #af002d 41.07%, #319197 76.05%);
+  position: absolute;
+  mix-blend-mode: screen;
+  opacity: 0.75;
+  min-height: 500px;
+  height: 100%;
+  z-index: 2;
+}
+
+.a-hompeage-img-center::after {
+  pointer-events: none;
+  content: "";
+  min-height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+  display: block;
+  background: linear-gradient(130deg, #ff7a18, #af002d 41.07%, #319197 76.05%);
+  mix-blend-mode: screen;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.homepage-center-div .homepage-article-div {
+  background-color: #fff;
+  width: 50%;
+  padding: 3rem;
+  background-size: 50px;
+  display: flex;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBmaWxsPSIjRkZGIiBkPSJNMCA0MGg0MHY0MEgweiIvPjxwYXRoIGZpbGw9IiNGMEYwRjAiIGQ9Ik0zOS41IDQwaDQwdjQwaC00MHoiLz48Zz48cGF0aCBmaWxsPSIjRjBGMEYwIiBkPSJNMCAwaDQwdjQwSDB6Ii8+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTM5LjUgMGg0MHY0MGgtNDB6Ii8+PC9nPjwvZz48L3N2Zz4=");
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  /* No border radius needed - parent handles it */
+}
+
+.a-css-tags-div {
+  display: flex;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+.a-css-tags-div .tag-a {
+  color: #ff7a18;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 10.85px;
+  font-family: bold;
+}
+.article-title-div {
+  margin-bottom: 28px;
+}
+.article-title-div a {
+  color: black;
+  text-decoration: none;
+
+  font-size: 50px;
+}
+.article-title-div h1 {
+}
+.p-div {
+}
+.p-div p {
+  margin: 0;
+  color: black;
+  line-height: 1.6;
+  font-size: 20px;
+}
+.p-div code {
+  font-size: 88%;
+}
+.avatar-and-info-div {
+  display: flex;
+  gap: 10px;
+}
+.avatar-and-info-div .avatar-img {
+  border-radius: 50%;
+
+  width: 40px;
+  height: 40px;
+}
+
+.avatar-and-info-div .paragraph {
+  text-align: center;
+  font-size: 16.5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.avatar-and-info-div .paragraph a {
+  text-decoration: none;
+  color: black;
+}
+@keyframes spinTheWheel {
   from {
     transform: rotate(0);
   }
