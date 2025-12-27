@@ -4,6 +4,7 @@ body {
   background-color: #4d4d4d;
   color: white;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,6 +19,7 @@ body {
 .navbar {
   display: flex;
   position: relative;
+  flex-wrap: wrap;
   gap: calc(32px - 16.5px);
   background-color: #111111;
   padding-left: 46px;
@@ -30,7 +32,7 @@ body {
 .navbar-logo a {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.5rem;
 }
 
 .icon-logo-star {
@@ -154,10 +156,10 @@ body {
 
   font-size: 50px;
 }
-.article-title-div h1 {
+/* .article-title-div h1 {
 }
 .p-div {
-}
+} */
 .p-div p {
   margin: 0;
   color: black;
@@ -195,5 +197,45 @@ body {
   }
   to {
     transform: rotate(720deg);
+  }
+}
+@media (max-width: 1241px) {
+  .navbar .navbar-logo {
+    width: 100%;
+  }
+  .navbar .icon-logo-text {
+    height: 28px;
+    width: 274px;
+  }
+  .navbar .icon-logo-star {
+    width: 18px;
+    height: 18px;
+  }
+  .navbar {
+    height: auto;
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+  .navbar .navbar-things-div {
+    height: auto;
+    margin-bottom: 6px;
+    margin-left: -12.5px;
+  }
+
+  .navbar .navbar-thing-div {
+    height: auto;
+    padding: 9.5px 12.5px;
+    border-radius: 4px;
+  }
+
+  .navbar .navbar-thing-div div {
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar .search-icon-div {
+    top: 4px;
+    position: fixed;
+    right: 3rem;
   }
 }
