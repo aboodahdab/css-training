@@ -88,7 +88,7 @@ body {
   text-transform: uppercase;
   height: 54px;
   padding: 0px 16.5px;
-  font-size: 12px;
+  font-size: 13px;
 
   transition: all 0.2s ease;
 
@@ -264,14 +264,15 @@ body {
   }
   .navbar .navbar-things-div {
     height: auto;
-    margin-bottom: 6px;
+    /* margin-bottom: 6px; */
     /* reduce the margin by first element left padding  */
-    margin-left: -10px;
+    margin-left: -8px;
   }
 
   .navbar .navbar-thing-div {
     height: auto;
-    padding: 8px 10px;
+    padding: 9.5px 12.5px;
+    padding-bottom: 12.5px;
     border-radius: 4px;
   }
 
