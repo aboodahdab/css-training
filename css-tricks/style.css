@@ -9,7 +9,7 @@
 
 html,
 body {
-  height: 100%;
+  height: 200%;
   background-color: var(--background-color);
   background-position: top 58px center;
 
@@ -27,6 +27,7 @@ body {
   --background-color: #262626;
   --orange-color: #ff7a18;
   --featured-img: linear-gradient(180deg, #fff, #262626);
+  --navbar-height: 56.5px;
 }
 * {
   box-sizing: border-box;
@@ -51,7 +52,7 @@ body {
   /* padding-top: 4px; */
   max-width: 100%;
   width: 100%;
-  height: 56.5px;
+  height: var(--navbar-height);
 
   padding-right: 46px;
   align-items: center;
@@ -87,7 +88,7 @@ body {
   cursor: pointer;
   text-transform: uppercase;
   height: 54px;
-  padding: 0px 16.5px;
+  padding: 0px 14.5px;
   font-size: 13px;
 
   transition: all 0.2s ease;
@@ -137,8 +138,6 @@ body {
   object-position: center top;
   height: 100%;
   display: block;
-
-  /* No border radius needed - parent handles it */
 }
 
 .a-hompeage-img-center::after {
@@ -233,9 +232,10 @@ body {
   align-items: center;
   gap: 4px;
 }
-.avatar-and-info-div .paragraph a {
+.avatar-and-info-div .paragraph .article-writer-name {
   text-decoration: none;
   color: black;
+  font-weight: bold;
 }
 @keyframes spinTheWheel {
   from {
@@ -266,21 +266,24 @@ body {
     height: auto;
     /* margin-bottom: 6px; */
     /* reduce the margin by first element left padding  */
-    margin-left: -8px;
+    margin-left: -7.5px;
   }
 
   .navbar .navbar-thing-div {
     height: auto;
-    padding: 9.5px 12.5px;
+    font-size: 12.5px;
+    padding: 8px 9px;
     padding-bottom: 12.5px;
     border-radius: 4px;
   }
 
   .navbar .navbar-thing-div div {
     height: auto;
+
     margin: 0;
     padding: 0;
   }
+
   .navbar .search-icon-div {
     top: 4px;
     position: fixed;
