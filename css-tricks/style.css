@@ -192,6 +192,7 @@ body {
   font-size: 3rem;
 }
 .article-title-div .a-title {
+  white-space: pre-line;
   color: black;
   text-decoration: none;
   font-family: "MD Primer", Rubik, Lato, Lucida Grande, Lucida Sans Unicode,
@@ -208,7 +209,7 @@ body {
   margin: 0;
   color: black;
   line-height: 1.6;
-  font-size: 18.5px;
+  font-size: 19.1px;
 }
 .p-div code {
   font-size: 88%;
@@ -226,10 +227,10 @@ body {
 }
 
 .avatar-and-info-div .paragraph {
-  text-align: center;
   font-size: 16.5px;
   display: flex;
   align-items: center;
+  white-space: nowrap;
   gap: 4px;
 }
 .avatar-and-info-div .paragraph .article-writer-name {
@@ -292,6 +293,9 @@ body {
 @media (max-width: 1200px) {
   :root {
     --gap: 2rem;
+  }
+  .avatar-and-info-div .paragraph {
+    font-size: 15px;
   }
 }
 
